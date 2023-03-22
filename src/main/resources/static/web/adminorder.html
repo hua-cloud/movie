@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--edge浏览器H5兼容设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit" />
+    <title>用户订单信息查看</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap3/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <!--导入外部的css样式文件-->
+    <link rel="stylesheet" type="text/css" href="../css/top.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin.css" />
+</head>
+<body>
+    <!--头部-->
+    <header>
+        <div class="header">
+            <img src="../images/index/logo.png" alt="" />
+            <span class="pull-right"><b>即刻影院后台管理页面</b></span>
+        </div>
+    </header>
+    <!--主体部分-->
+    <div>
+        <div>
+            <ul class="admin-select">
+                <li class="admin-select-item1">本日相关信息</li>
+                <li class="admin-select-item"><a href="adminIndex.html" class="list-a">电影票信息</a></li>
+                <li class="admin-select-item"><a href="adminorder.html" class="list-a">订票信息</a></li>
+                <li class="admin-select-item"><a class="list-a">销售额信息</a></li>
+            </ul>
+        </div>
+        <div class="admin-show pull-right">
+            <ul class="admin-navigation-bar">
+                <li class="navigation-list"><p class="list-p"><b>订单编号</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>购票用户</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>电影名称</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>电影单价</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>购买票数</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>下单时间</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>是否付款</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>付款金额</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>观看状态</b></p></li>
+                <li class="navigation-list"><p class="list-p"><b>操作</b></p></li>
+            </ul>
+            <table class="table-bordered">
+                <tr class="table-tr">
+                    <td class="tr-td">100001</td>
+                    <td class="tr-td">王小美</td>
+                    <td class="tr-td">暗夜博士:莫比亚斯</td>
+                    <td class="tr-td">50￥</td>
+                    <td class="tr-td">2</td>
+                    <td class="tr-td">2022-6-1</td>
+                    <td class="tr-td">已付款</td>
+                    <td class="tr-td">100￥</td>
+                    <td class="tr-td">已结束</td>
+                    <td class="tr-td"><input type="button" value="编辑"><input type="button" value="删除" class="delete-btn"></td>
+                </tr>
+                <tr>
+                    <td class="tr-td">100002</td>
+                    <td class="tr-td">test02</td>
+                    <td class="tr-td">深海浩劫</td>
+                    <td class="tr-td">58￥</td>
+                    <td class="tr-td">1</td>
+                    <td class="tr-td">2022-6-1</td>
+                    <td class="tr-td">已付款</td>
+                    <td class="tr-td">58￥</td>
+                    <td class="tr-td">已结束</td>
+                    <td class="tr-td"><input type="button" value="编辑"><input type="button" value="删除" class="delete-btn"></td>
+                </tr>
+                <tr>
+                    <td class="tr-td">100003</td>
+                    <td class="tr-td">test03</td>
+                    <td class="tr-td">毒液2</td>
+                    <td class="tr-td">35￥</td>
+                    <td class="tr-td">2</td>
+                    <td class="tr-td">2022-6-3</td>
+                    <td class="tr-td">已付款</td>
+                    <td class="tr-td">70￥</td>
+                    <td class="tr-td">已结束</td>
+                    <td class="tr-td"><input type="button" value="编辑"><input type="button" value="删除" class="delete-btn"></td>
+                </tr>
+                <tr>
+                    <td class="tr-td">100004</td>
+                    <td class="tr-td">admin</td>
+                    <td class="tr-td">坏蛋联盟</td>
+                    <td class="tr-td">45￥</td>
+                    <td class="tr-td">1</td>
+                    <td class="tr-td">2022-6-5</td>
+                    <td class="tr-td">已付款</td>
+                    <td class="tr-td">45￥</td>
+                    <td class="tr-td">未开始</td>
+                    <td class="tr-td"><input type="button" value="编辑"><input type="button" value="删除" class="delete-btn"></td>
+                </tr>
+                <tr>
+                    <td class="tr-td">100005</td>
+                    <td class="tr-td">zehuaLi</td>
+                    <td class="tr-td">这个杀手不太冷静</td>
+                    <td class="tr-td">34￥</td>
+                    <td class="tr-td">5</td>
+                    <td class="tr-td">2022-6-5</td>
+                    <td class="tr-td">已付款</td>
+                    <td class="tr-td">170￥</td>
+                    <td class="tr-td">未开始</td>
+                    <td class="tr-td"><input type="button" value="编辑"><input type="button" value="删除" class="delete-btn"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--页脚-->
+    <footer>
+        <h4>如果出现任何问题，请及时联系工作人员 联系电话:+86 15234174870</h4>
+    </footer>
+
+</body>
+</html>

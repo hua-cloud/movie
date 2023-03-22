@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--edge浏览器H5兼容设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit" />
+    <title>管理员登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap3/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../css/top.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <script src="../bootstrap3/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <!--头部-->
+    <header>
+        <div class="header">
+            <img src="../images/index/logo.png" alt="" />
+            <span class="pull-right"><b>即刻影院后台管理页面</b></span>
+        </div>
+    </header>
+    <!--主体部分-->
+    <div class="container mycontent text-left">
+        <!--透明层 -->
+        <div class="loginDiv">
+            <p>管理员登录</p>
+            <!--表单开始-->
+            <form id="form-login" action="index.html"  class="form-horizontal" role="form">
+                <!--用户名-->
+                <div class="form-group">
+                    <label for="username" class="col-md-3 control-label">名字：</label>
+                    <div class="col-md-8">
+                        <input name="username" type="text" class="form-control" id="username"  placeholder="请输入管理员姓名">
+                    </div>
+                </div>
+                <!--密码-->
+                <div class="form-group">
+                    <label for="password" class="col-md-3 control-label"> 密码：</label>
+                    <div class="col-md-8">
+                        <input name="password" type="text" class="form-control" id="password"  placeholder="请输入密码">
+                    </div>
+                </div>
+                <!--提交按钮-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input id="btn-login" class="btn btn-primary" type="button" value="登录" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--页脚开始-->
+    <footer>
+        <h4>如果出现任何问题，请及时联系工作人员 联系电话:+86 15234174870</h4>
+    </footer>
+    <script type="text/javascript">
+        $("#btn-login").click(function () {
+            var username = $("#username").val();
+            if(username == "zehuaLi"){
+                $.ajax({
+                    url: "/users/login",
+                    type: "POST",
+                    data: $("#form-login").serialize(),
+                    dataType: "JSON",
+                    success: function (json) {
+                        if(json.state == 200){
+                            alert("登录成功!");
+                            location.href = "adminIndex.html";
+                        } else {
+                            alert("登录失败!管理员名称或密码输入有误");
+                        }
+                    },
+                    error: function (xhr) {
+                        alert("登录时产生未知错误"+xhr.status);
+                    }
+                });
+            } else {
+                alert("此账户并非管理员，您无权登录！")
+            }
+        });
+    </script>
+</body>
+</html>

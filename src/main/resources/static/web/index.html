@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--edge浏览器H5兼容设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit" />
+    <title>即刻影院</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap3/jquery-1.8.3.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <script src="../js/menu.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../css/webindex.css" />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/top.css" />
+</head>
+<body>
+    <!--头部-->
+    <header class="header">
+        <!--电脑商城logo-->
+        <div class="row">
+            <div class="col-md-3">
+                <a href="index.html">
+                    <img src="../images/index/logo.png" />
+                </a>
+            </div>
+            <!--快捷选项-->
+            <div class="col-md-9 top-item">
+                <ul class="list-inline pull-right">
+                    <li><a href="#"><span class="fa fa-heart"></span>&nbsp;收藏影片</a></li>
+                    <li class="li-split">|</li>
+                    <li><a href="orders.html"><span class="fa fa-file-text"></span>&nbsp;订票记录</a></li>
+                    <li class="li-split">|</li>
+                    <li>
+                        <!--下列列表按钮 ：管理-->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                <span id="top-dropdown-btn"><span class="fa fa-gears"></span>&nbsp;管理 <span class="caret"></span></span>
+                            </button>
+                            <ul class="dropdown-menu top-dropdown-ul" role="menu">
+                                <li><a href="password.html">修改密码</a></li>
+                                <li><a href="userdata.html">个人资料</a></li>
+                                <li><a href="upload.html">上传头像</a></li>
+                                <li id="exit"><a href="login.html">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="li-split">|</li>
+                    <li><span class="fa fa-user"></span>&nbsp;欢迎</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!--导航 -->
+    <!--分割导航和顶部-->
+    <div class="row top-nav">
+        <div class="col-md-6">
+            <ul class="nav nav-pills">
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li class="active"><a href="index.html"><span class="fa fa-home"></span></a></li>
+                <li><a href="#">科幻</a></li>
+                <li><a href="#">剧情</a></li>
+                <li><a href="#">爱情</a></li>
+                <li><a href="#">动漫</a></li>
+                <li><a href="#">喜剧</a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <form action="#" class="form-inline pull-right" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="search" name="search" placeholder="请输入电影名称进行搜索">
+                </div>
+                <button type="submit" class="btn btn-default btn-sm"><span class="fa fa-search"></span></button>
+            </form>
+        </div>
+    </div>
+    <!--头部结束-->
+    <!--导航结束-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" id="indexMenu">
+                <ul class="index-menu">
+                </ul>
+                <div id="showIndex">
+                    <ul class="second-menu">
+                        <li class="second-menu-li">####</li>
+                    </ul>
+                </div>
+                <div id="showSecond">
+                    <ul class="third-menu">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div id="myCarousel" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner" align="center">
+                        <div class="item active">
+                            <a href="https://yanetflix.com/">
+                                <img src="../images/index/banner1.png">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://yanetflix.com/">
+                                <img src="../images/index/banner2.png">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://yanetflix.com/">
+                                <img src="../images/index/banner3.png">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://yanetflix.com/">
+                                <img src="../images/index/banner4.png">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--推荐栏目-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p class="panel-title">正在热映</p>
+                    </div>
+                    <div class="panel-body panel-item">
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>神秘海域&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100001">购票</a><br/></p>
+                                <p><small>导演:&nbsp;鲁本·弗雷斯彻<br/>主演:&nbsp;汤姆·赫兰德，马克·沃尔伯格<br/>科幻,冒险<br/>美国/102分钟<br/>2022年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥58/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Science/4.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7  text-row-2">
+                                <p>暗夜博士:莫比亚斯&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100002">购票</a><br/></p>
+                                <p><small>导演:&nbsp;丹尼尔·伊斯皮诺萨<br/>主演:&nbsp;杰瑞德·莱托，马特·史密斯<br/>科幻，惊悚<br/>美国/141分钟<br/>2022年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥50/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Science/5.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>毒液2&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100003">购票</a><br/></p>
+                                <p><small>导演:&nbsp;安迪·瑟金斯<br/>主演:&nbsp;汤姆·哈迪<br/>科幻，动作<br/>美国/106分钟<br/>2021年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥35/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Science/3.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>坏蛋联盟&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100004">购票</a><br/></p>
+                                <p><small>导演:&nbsp;彼埃尔·佩里菲尔<br/>主演:&nbsp;山姆·洛克威尔，马克·马龙<br/>动漫，喜剧<br/>美国/116分钟<br/>2021年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥45/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Animation/3.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>这个杀手不太冷静&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100005">购票</a><br/></p>
+                                <p><small>导演:&nbsp;刑文雄<br/>主演:&nbsp;马丽，魏翔<br/>喜剧<br/>中国大陆/121分钟<br/>2022年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥34/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Comedy/3.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>月球陨落&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100006">购票</a><br/></p>
+                                <p><small>导演:&nbsp;罗兰·艾默里奇<br/>主演:&nbsp;哈莉·贝瑞，帕特里克·威尔森<br/>科幻，灾难<br/>中国大陆，美国，英国/129分钟<br/>2022年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥36/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Science/6.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>蜘蛛侠·英雄无归&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100007">购票</a><br/></p>
+                                <p><small>导演:&nbsp;乔·沃茨<br/>主演:&nbsp;汤姆·赫兰德，本尼迪克特·康伯巴奇<br/>科幻，动作<br/>美国，冰岛/135分钟<br/>2022年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥41/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Science/7.jpg" class="img-responsive" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p class="panel-title">经典重映</p>
+                    </div>
+                    <div id="hot-list" class="panel-body panel-item">
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>这个杀手不太冷&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100008">购票</a><br/></p>
+                                <p><small>导演:&nbsp;吕克·贝松<br/>主演:&nbsp;让·雷诺,娜塔莉·波特曼<br/>动作，剧情<br/>法国，美国/121分钟<br/>1996年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥35/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Action/1.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>误杀&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=100009">购票</a><br/></p>
+                                <p><small>导演:&nbsp;戴墨<br/>主演:&nbsp;肖央，谭卓<br/>悬疑，剧情<br/>中国大陆/114分钟<br/>2021年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥32/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Suspense/1.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>情书&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=1000010">购票</a><br/></p>
+                                <p><small>导演:&nbsp;Pa-oon/Chantornsiri<br/>主演:&nbsp;安妮·彤帕拉松，Supitsha<br/>爱情<br/>日本/134分钟<br/>1997年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥28/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Love/1.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>功夫熊猫&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=1000011">购票</a><br/></p>
+                                <p><small>导演:&nbsp;马克·奥斯本，约翰·斯蒂文森<br/>主演:&nbsp;杰克·布莱克，达斯汀·霍夫曼<br/>动漫，喜剧<br/>美国/131分钟<br/>2009年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥33/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Animation/4.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>大话西游之大圣娶亲&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=1000012">购票</a><br/></p>
+                                <p><small>导演:&nbsp;刘镇伟<br/>主演:&nbsp;周星驰，吴孟达，朱茵<br/>爱情，剧情<br/>中国香港/134分钟<br/>1995年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥99/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Love/3.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>逃学威龙&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=1000013">购票</a><br/></p>
+                                <p><small>导演:&nbsp;陈嘉上<br/>主演:&nbsp;周星驰，朱茵<br/>爱情，喜剧<br/>中国香港/116分钟<br/>1991年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥45/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Comedy/4.jpg" class="img-responsive" /></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-7 text-row-2">
+                                <p>让子弹飞&nbsp;&nbsp;&nbsp;<a href="tickets.html?mid=1000014">购票</a><br/></p>
+                                <p><small>导演:&nbsp;姜文<br/>主演:&nbsp;姜文，葛优<br/>剧情<br/>中国大陆/166分钟<br/>2010年中国大陆上映</small></p>
+                            </div>
+                            <div class="col-md-2">¥66/张</div>
+                            <div class="col-md-3"><img src="../images/movies/Comedy/5.jpg" class="img-responsive" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--页脚开始-->
+    <footer>
+        <div class="text-center rights container">
+            <div class="col-md-offset-2 col-md-2">
+                <span class="fa fa-thumbs-o-up"></span>
+                <p>海量正版影视作品</p>
+            </div>
+            <div class="col-md-2">
+                <span class="fa fa-address-card-o"></span>
+                <p>线上购票</p>
+            </div>
+            <div class="col-md-2">
+                <span class="fa fa-graduation-cap"></span>
+                <p>3D专区</p>
+            </div>
+            <div class="col-md-2">
+                <span class="fa fa-bitcoin"></span>
+                <p>超多优惠</p>
+            </div>
+        </div>
+        <!--联系我们，下载客户端等-->
+        <div class="container beforeBottom">
+            <div class="col-md-offset-1 col-md-3">
+                <div><img src="../images/index/logo.png" alt="" class="footLogo" /></div>
+            </div>
+            <div class="col-md-4 callus text-center">
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="#">买家帮助</a></li>
+                        <li><a href="#">购票指南</a></li>
+                        <li><a href="#">服务保障</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="#">影院信息</a></li>
+                        <li><a href="#">热播电影</a></li>
+                        <li><a href="#">电影论坛</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">关于华强</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li>
+                            <span class="fa fa-wechat"></span>
+                            <span class="fa fa-weibo"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-5">
+                    <p>即刻影院客户端</p>
+                    <img src="../images/index/ios.png" class="lf">
+                    <img src="../images/index/android.png" alt="" class="lf" />
+                </div>
+            </div>
+        </div>
+        <!-- 页面底部-备案号 #footer -->
+        <div class="col-md-12 text-center bottom">
+            Copyright © 2022 huaqiang.com All Rights Reserved 京ICP备910981143号-56 <a target="_blank" style="font-size: 12px" href="">华强科技有限公司</a> 版权所有
+        </div>
+    </footer>
+    <!--页脚结束-->
+</body>
+</html>

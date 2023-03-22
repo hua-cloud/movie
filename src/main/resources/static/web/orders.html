@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--edge浏览器H5兼容设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--360浏览器H5兼容设置-->
+    <meta name="renderer" content="webkit" />
+    <title>订票记录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap3/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../css/top.css" />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/order.css" />
+</head>
+<body>
+    <!--头部-->
+    <header class="header">
+        <!--影院logo-->
+        <div class="row">
+            <div class="col-md-3">
+                <a href="index.html">
+                    <img src="../images/index/logo.png" />
+                </a>
+            </div>
+            <!--快捷选项-->
+            <div class="col-md-9 top-item">
+                <ul class="list-inline pull-right">
+                    <li><a href="#"><span class="fa fa-heart"></span>&nbsp;收藏影片</a></li>
+                    <li class="li-split">|</li>
+                    <li><a href="orders.html"><span class="fa fa-file-text"></span>&nbsp;订票记录</a></li>
+                    <li class="li-split">|</li>
+                    <li>
+                        <!--下列列表按钮 ：管理-->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                <span id="top-dropdown-btn"><span class="fa fa-gears"></span>&nbsp;管理 <span class="caret"></span></span>
+                            </button>
+                            <ul class="dropdown-menu top-dropdown-ul" role="menu">
+                                <li><a href="password.html">修改密码</a></li>
+                                <li><a href="userdata.html">个人资料</a></li>
+                                <li id="exit"><a href="login.html">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="li-split">|</li>
+                    <li><span class="fa fa-user"></span>&nbsp;欢迎</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--导航 -->
+    <!--分割导航和顶部-->
+    <div class="row top-nav">
+        <div class="col-md-6">
+            <ul class="nav nav-pills">
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li class="active"><a href="index.html"><span class="fa fa-home"></span></a></li>
+                <li><a href="#">科幻</a></li>
+                <li><a href="#">剧情</a></li>
+                <li><a href="#">爱情</a></li>
+                <li><a href="#">动漫</a></li>
+                <li><a href="#">喜剧</a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <form action="#" class="form-inline pull-right" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="search" name="search" placeholder="请输入电影名称进行搜索">
+                </div>
+                <button type="submit" class="btn btn-default btn-sm"><span class="fa fa-search"></span></button>
+            </form>
+        </div>
+    </div>
+    <!--头部结束-->
+    <!--导航结束-->
+    <div class="container">
+        <div class="col-md-2">
+            <!--左侧导航开始-->
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <!--主选项：我的订单-->
+                        <p class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">我的订单</a>
+                        </p>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div><a href="orders.html"><b>全部订票记录</b></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <!--主选项：资料修改-->
+                        <p class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">资料修改</a>
+                        </p>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div><a href="password.html">修改密码</a></div>
+                            <div><a href="userdata.html">个人资料</a></div>
+                            <div><a href="upload.html">上传头像</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--左侧导航结束-->
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="orders-table" width="100%">
+                        <thead>
+                        <tr>
+                            <th width="15%"></th>
+                            <th width="30%">电影名称</th>
+                            <th width="8%">单价</th>
+                            <th width="8%">票数</th>
+                            <th width="9%">小计</th>
+                            <th width="10%">售后</th>
+                            <th width="10%">状态</th>
+                        </tr>
+                        </thead>
+                        <tbody id="order-list" class="orders-body">
+                        <!-- 模板 -->
+                            <!--<tr>
+                                <td><img src="../images/movies/Action/1.jpg" class="img-responsive" /></td>
+                                <td>xxxxxxxxxxx</td>
+                                <td>¥<span>?</span></td>
+                                <td>?</td>
+                                <td>¥<span>?</span></td>
+                                <td><a href="#">申请退票</a></td>
+                                <td>
+                                    <div>已出票</div>
+                                    <div><a href="orderInfo.html">订单详情</a></div>
+                                 </td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--页脚开始-->
+    <footer>
+        <div class="text-center rights container">
+            <div class="col-md-offset-2 col-md-2">
+                <span class="fa fa-thumbs-o-up"></span>
+                <p>海量正版影视作品</p>
+            </div>
+            <div class="col-md-2">
+                <span class="fa fa-address-card-o"></span>
+                <p>线上购票</p>
+            </div>
+            <div class="col-md-2">
+                <span class="fa fa-graduation-cap"></span>
+                <p>3D专区</p>
+            </div>
+            <div class="col-md-2">
+                <span class="fa fa-bitcoin"></span>
+                <p>超多优惠</p>
+            </div>
+        </div>
+        <!--联系我们，下载客户端等-->
+        <div class="container beforeBottom">
+            <div class="col-md-offset-1 col-md-3">
+                <div><img src="../images/index/logo.png" alt="" class="footLogo" /></div>
+            </div>
+            <div class="col-md-4 callus text-center">
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="#">买家帮助</a></li>
+                        <li><a href="#">购票指南</a></li>
+                        <li><a href="#">服务保障</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="#">影院信息</a></li>
+                        <li><a href="#">热播电影</a></li>
+                        <li><a href="#">电影论坛</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">关于华强</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li>
+                            <span class="fa fa-wechat"></span>
+                            <span class="fa fa-weibo"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-5">
+                    <p>即刻影院客户端</p>
+                    <img src="../images/index/ios.png" class="lf">
+                    <img src="../images/index/android.png" alt="" class="lf" />
+                </div>
+            </div>
+        </div>
+        <!-- 页面底部-备案号 #footer -->
+        <div class="col-md-12 text-center bottom">
+            Copyright © 2022 huaqiang.com All Rights Reserved 京ICP备910981143号-56 <a target="_blank" style="font-size: 12px" href="">华强科技有限公司</a> 版权所有
+        </div>
+    </footer>
+    <!--页脚结束-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "/order/getOrder",
+                type: "GET",
+                dataType: "JSON",
+                success: function (json) {
+                    if (json.state==200) {
+                        // 用一个变量接收响应回来的数据部分
+                        let list = json.data;
+                        let count = list.length;
+                        // 循环开始
+                        for (let i = 0; i < count; i++) {
+                            console.log(list[i].oid);
+                            // 获取到当前订单中购买的数量
+                            let amount = Number(list[i].amount);
+                            let title,image,price;
+
+                            // 再次去发送一个ajax请求
+                            $.ajax({
+                                url: "/ticket/"+list[i].mid+"/detail",
+                                type: "GET",
+                                dataType: "JSON",
+                                // 将当前请求设置为同步的，即等请求完成后再继续执行
+                                async: false,
+                                success: function(json) {
+                                    if (json.state==200) {
+                                        // 获取电影票的相关信息
+                                        title = json.data.title;
+                                        price = json.data.price;
+                                        image = json.data.image;
+                                    } else if (json.state == 4006) { // 商品数据不存在的异常
+                                        alert("访问的数据不存在！");
+                                        location.href = "index.html";
+                                    } else {
+                                        alert("获取商品信息失败！" + json.message);
+                                    }
+                                },
+                                error: function (xhr) {
+                                    alert("查询时产生未知错误"+xhr.status);
+                                }
+                            });
+
+                            let tr = '<tr>' +
+                                '<td><img src="#{image}" class="img-responsive" /></td>'
+                                +'<td>#{title}</td>'
+                                +'<td>¥<span>#{price}</span></td>'
+                                +'<td>#{amount}</td>'
+                                +'<td>¥<span>#{sum}</span></td>'
+                                +'<td><a href="#">申请退票</a></td>'
+                                +'<td>'
+                                +'<div>#{status}</div>'
+                                +'<div><a href="orderInfo.html">订单详情</a></div>'
+                                +'</td>'
+                                +'</tr>';
+                            // 计算出小计的订单金额
+                            let sum = Number(price)*amount;
+                            // 替换数据
+                            tr = tr.replace(/#{title}/g, title);
+                            tr = tr.replace(/#{image}/g, image);
+                            tr = tr.replace(/#{price}/g, price);
+                            tr = tr.replace(/#{amount}/g, list[i].amount);
+                            tr = tr.replace(/#{sum}/g, sum);
+                            // 根据票的状态码的值的不同显示不同的内容
+                            if (list[i].ticketStatus==1) {
+                                tr = tr.replace(/#{status}/g, "已出票");
+                            } else if (list[i].ticketStatus==0) {
+                                tr = tr.replace(/#{status}/g,"未出票")
+                            }
+                            // 将新的tr添加到tbody中
+                            $("#order-list").append(tr);
+                        }
+                    } else if (json.state==4001) {
+                        alert("用户数据不存在");
+                    }
+                },
+                error: function (xhr) {
+                    alert("查询时产生未知错误"+xhr.status);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
