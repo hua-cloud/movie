@@ -39,16 +39,16 @@
             <form id="form-login" action="index.html"  class="form-horizontal" role="form">
                 <!--用户名-->
                 <div class="form-group">
-                    <label for="username" class="col-md-3 control-label">名字：</label>
+                    <label for="username" class="col-md-3 control-label">用户名:</label>
                     <div class="col-md-8">
                         <input name="username" type="text" class="form-control" id="username"  placeholder="请输入用户名">
                     </div>
                 </div>
                 <!--密码-->
                 <div class="form-group">
-                    <label for="password" class="col-md-3 control-label"> 密码：</label>
+                    <label for="password" class="col-md-3 control-label"> 密&nbsp;&nbsp;码:</label>
                     <div class="col-md-8">
-                        <input name="password" type="text" class="form-control" id="password"  placeholder="请输入密码">
+                        <input name="password" type="password" class="form-control" id="password"  placeholder="请输入密码">
                     </div>
                 </div>
                 <!-- 记住我-->
@@ -135,7 +135,7 @@
         </div>
         <!-- 页面底部-备案号 #footer -->
         <div class="col-md-12 text-center bottom">
-            Copyright © 2022 huaqiang.com All Rights Reserved 京ICP备910981143号-56 <a target="_blank" style="font-size: 12px" href="">华强科技有限公司</a> 版权所有
+            Copyright © 2022 huaqiang.com All Rights Reserved 京ICP备910981143号-56 <a target="_blank" style="font-size: 12px" href="http://lihua.great-site.net/">华强科技有限公司</a> 版权所有
         </div>
     </footer>
     <!--页脚结束-->
@@ -145,8 +145,8 @@
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
             // 判断用户输入的用户名或密码是否为空,进行条件控制，若输入的信息有误则无法发送请求
-            if ((username=="")||(password=="")) {
-                alert("请输入完整的登录信息！");
+            if (!username||!password) {
+                alert("请输入完整的登录信息");
             } else {
                 // 发送登录请求
                 $.ajax({

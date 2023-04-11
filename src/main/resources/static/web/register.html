@@ -37,23 +37,23 @@
             <form id="form-reg" class="form-horizontal" role="form">
                 <!--用户名-->
                 <div class="form-group">
-                    <label class="col-md-3 control-label">名字：</label>
+                    <label class="col-md-3 control-label">用户名:</label>
                     <div class="col-md-8">
-                        <input name="username" type="text" class="form-control" placeholder="请输入用户名">
+                        <input id="username" name="username" type="text" class="form-control" placeholder="请输入用户名">
                     </div>
                 </div>
                 <!--密码-->
                 <div class="form-group">
-                    <label class="col-md-3 control-label"> 密码：</label>
+                    <label class="col-md-3 control-label"> 密&nbsp;&nbsp;码:</label>
                     <div class="col-md-8">
-                        <input name="password" type="text" class="form-control" placeholder="请输入密码">
+                        <input id="password" name="password" type="password" class="form-control" placeholder="请输入密码">
                     </div>
                 </div>
                 <!--确认密码-->
                 <div class="form-group">
-                    <label class="col-md-3 control-label"> 确认密码：</label>
+                    <label class="col-md-3 control-label"> 确认密码:</label>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" placeholder="请再次输入密码">
+                        <input id="confirm-password" type="password" class="form-control" placeholder="请再次输入密码">
                     </div>
                 </div>
                 <!--提交按钮-->
@@ -130,34 +130,67 @@
         </div>
         <!-- 页面底部-备案号 #footer -->
         <div class="col-md-12 text-center bottom">
-            Copyright © 2022 huaqiang.com All Rights Reserved 京ICP备910981143号-56 <a target="_blank" style="font-size: 12px" href="">华强科技有限公司</a> 版权所有
+            Copyright © 2022 huaqiang.com All Rights Reserved 京ICP备910981143号-56 <a target="_blank" style="font-size: 12px" href="http://lihua.great-site.net/">华强科技有限公司</a> 版权所有
         </div>
     </footer>
     <!--页脚结束-->
     <script type="text/javascript">
+        // 添加一个验证用户输入合法性的方法
+        function validatePassword(password, confirmPassword) {
+            // 检查密码长度是否大于6位
+            if (password.length < 6) {
+                return "密码长度至少为6位";
+            }
+
+            // 检查两次输入的密码是否一致
+            if (password !== confirmPassword) {
+                return "两次输入的密码不一致";
+            }
+
+            // 检查密码是否只包含字母和数字
+            var regex = /^[A-Za-z0-9]+$/;
+            if (!regex.test(password)) {
+                return "密码只能包含数字或英文字母";
+            }
+
+            return "ok";
+        }
         //1.监听注册按钮是否被点击
         //通过id选择器来选中注册按钮,click方法能监听按钮是否被点击
         //如果被点击则执行一个方法
         $("#btn-reg").click(function () {
-            //2.发送ajax()的异步请求来完成用户的注册功能
-            $.ajax({
-                url: "/user/reg",
-                type: "POST",
-                // 通过id选择器选中整个表单，调用方法会自动获取到表单控件里的值
-                // 并且将值拼接成如  username=Tom&password=123 的形式，序列化
-                data: $("#form-reg").serialize(),
-                dataType: "JSON",
-                success : function (json) {
-                    if(json.state == 200){
-                        alert("注册成功");
-                    } else {
-                        alert("注册失败");
+            // 2.对用户输入合法性进行验证
+            let username = document.getElementById("username").value;
+            let passwd = document.getElementById("password").value;
+            let confirmPwd = document.getElementById("confirm-password").value;
+            let isValid = validatePassword(passwd, confirmPwd);
+            // 2.1 检查用户输入的内容是否为空
+            if (!username || !passwd || !confirmPwd) {
+                alert("请输入完整的注册信息");
+            } else if (isValid == "ok") { //如果用户的输入合法才能够发送注册请求
+                //2.发送ajax()的异步请求来完成用户的注册功能
+                $.ajax({
+                    url: "/user/reg",
+                    type: "POST",
+                    // 通过id选择器选中整个表单，调用方法会自动获取到表单控件里的值
+                    // 并且将值拼接成如  username=Tom&password=123 的形式，序列化
+                    data: $("#form-reg").serialize(),
+                    dataType: "JSON",
+                    success : function (json) {
+                        if(json.state == 200){
+                            alert("注册成功");
+                        } else {
+                            alert("注册失败");
+                        }
+                    },
+                    error: function (xhr) {
+                        alert("注册时产生未知的错误！" + xhr.status);
                     }
-                },
-                error: function (xhr) {
-                    alert("注册时产生未知的错误！" + xhr.status);
-                }
-            });
+                });
+            } else {
+                alert(isValid);
+            }
+
         });
     </script>
 </body>
