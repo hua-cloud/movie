@@ -1,5 +1,6 @@
 package com.cust.movie.interceptor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 一个拦截器类，实现了Spring MVC框架提供的HandlerInterceptor接口
  */
+@Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
 
     /**
@@ -26,8 +28,10 @@ public class LoginInterceptor implements HandlerInterceptor {
         Object object = request.getSession().getAttribute("uid");
         if (object == null) {
             // 说明用户没有登录过系统，则重定向到login.html页面
-            response.sendRedirect("/web/login.html");
+            // response.sendRedirect("/web/login.html");
             // 结束了后续的调用，拦截请求
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            log.debug("当前请求被拦截");
             return false;
         }
         // 请求放行

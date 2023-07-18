@@ -229,14 +229,14 @@
 
 			$("#btn-change-avatar").click(function () {
 				$.ajax({
-					url: "/user/change_avatar",
+					url: "/user/change-avatar",
 					type: "POST",
-					data: new FormData($("#form-change-avatar")[0]),
 					// ajax默认处理数据时按照字符串的形式进行处理，以及默认会采用字符串的形式进行提交数据
 					// 需要关闭这两个默认的功能
 					// 处理数据的形式，关闭数据处理
-					processData: false,
+					data: new FormData($("#form-change-avatar")[0]),
 					// 提交数据的形式，关闭默认提交数据的形式
+					processData: false,
 					contentType: false,
 					dataType: "JSON",
 					success: function (json) {
@@ -253,7 +253,6 @@
 					error: function (xhr) {
 						alert("修改头像时产生未知的异常" + xhr.message);
 					}
-
 				});
 			});
 		</script>

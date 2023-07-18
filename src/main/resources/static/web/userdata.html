@@ -237,7 +237,7 @@
     <script type="text/javascript">
         $("#btn-change-info").click(function () {
             $.ajax({
-                url: "/user/change_info",
+                url: "/user/change-info",
                 type: "POST",
                 data: $("#form-change-info").serialize(),
                 dataType: "JSON",
@@ -257,7 +257,7 @@
 
         $(document).ready(function(){
             $.ajax({
-                url: "/user/get_by_uid",
+                url: "/user/get-by-uid",
                 type: "GET",
                 dataType: "JSON",
                 success: function (json) {

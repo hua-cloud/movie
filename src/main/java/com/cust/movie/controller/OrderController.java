@@ -3,12 +3,15 @@ package com.cust.movie.controller;
 import com.cust.movie.entity.Order;
 import com.cust.movie.service.IOrderService;
 import com.cust.movie.util.JsonResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+@Api(tags = "用户订单数据处理模块")
 @RestController
 @RequestMapping("/order")
 public class OrderController extends BaseController{
@@ -18,6 +21,7 @@ public class OrderController extends BaseController{
 
 
     @GetMapping("/addOrder")
+    @ApiOperation("用户下单")
     public JsonResult<Void> addOrder (@RequestParam("mid") Integer mid, @RequestParam("amount") Integer amount, HttpSession session) {
 
         Order order = new Order();
@@ -34,6 +38,7 @@ public class OrderController extends BaseController{
     }
 
     @GetMapping("/getOrder")
+    @ApiOperation("获取当前用户订单信息")
     public JsonResult<List<Order>> getUserAllOrders (HttpSession session) {
 
         // 获取到当前登录用户的uid

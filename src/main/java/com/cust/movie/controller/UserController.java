@@ -1,9 +1,13 @@
 package com.cust.movie.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.cust.movie.controller.ex.*;
+import com.cust.movie.dto.UserDTO;
 import com.cust.movie.entity.User;
 import com.cust.movie.service.IUserService;
 import com.cust.movie.util.JsonResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,9 +17,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
+@Api(tags = "用户数据处理模块")
 //@Controller //此注解表示此类交由Spring框架来管理
 @RestController  //等效于 @Controller+@ResponseBody
 @RequestMapping("/user")
@@ -23,45 +27,53 @@ public class UserController extends BaseController {//注册模块的控制层
     @Autowired
     private IUserService userService;
 
-    @RequestMapping("/reg")
+    @PostMapping("/reg")
+    @ApiOperation("用户帐号注册")
     // @ResponseBody //  表示此方法的响应结果将以json格式进行数据的响应给到前端
-    public JsonResult<Void> reg(User user){
+    public JsonResult<Void> reg(@RequestBody User user){
         userService.reg(user);
         return new JsonResult<>(OK);
     }
 
-    @RequestMapping("/login")
-    public JsonResult<User> login(String username, String password, HttpSession session){
+    @PostMapping("/login")
+    @ApiOperation("用户帐号登录")
+    public JsonResult<UserDTO> login(String username, String password, HttpSession session){
         // 调用业务对象的方法执行登录，并获取返回值
-        User data = userService.login(username, password);
+        User user = userService.login(username, password);
+        // 使用HuTool中提供的工具将一个User对象中的属性复制到一个UserDTO对象中
+        UserDTO data = BeanUtil.copyProperties(user, UserDTO.class);
 
         // 向session域对象中完成数据的绑定（session是全局的）参数共享
         session.setAttribute("uid",data.getUid());
         session.setAttribute("username",data.getUsername());
 
         // 将以上返回值和状态码OK封装到响应结果中并返回
-        return new JsonResult<User>(OK,data);
+        return new JsonResult<UserDTO>(OK,"登录成功",data);
     }
 
-    @RequestMapping("/change_password")
+    @PostMapping("/change-password")
+    @ApiOperation("用户修改密码")
     public JsonResult<Void> changPassword(String oldPassword,String newPassword,HttpSession session){
         Integer uid = getUidFromSession(session);
         String username = getUsernameFromSession(session);
         userService.changPassword(uid,username,oldPassword,newPassword);
-        return new JsonResult<Void>(OK);
+        return new JsonResult<Void>(OK,"密码更改成功");
     }
 
-    @RequestMapping("/get_by_uid")
-    public JsonResult<User> getByUid(HttpSession session){
+    @GetMapping("/get-by-uid")
+    @ApiOperation("根据id查询用户信息")
+    public JsonResult<UserDTO> getByUid(HttpSession session){
         // 从HttpSession对象中获取uid
         Integer uid = getUidFromSession(session);
         // 调用业务对象执行获取数据
-        User data = userService.getByUid(uid);
+        User user = userService.getByUid(uid);
+        UserDTO data = BeanUtil.copyProperties(user, UserDTO.class);
         // 响应成功和数据
-        return new JsonResult<User>(OK, data);
+        return new JsonResult<UserDTO>(OK, "查询用户个人信息成功", data);
     }
 
-    @RequestMapping("/change_info")
+    @PostMapping ("/change-info")
+    @ApiOperation("更改用户个人资料")
     public JsonResult<Void> changeInfo(User user,HttpSession session){
         // 从HttpSession对象中获取uid和username
         Integer uid = getUidFromSession(session);
@@ -69,7 +81,7 @@ public class UserController extends BaseController {//注册模块的控制层
         // 调用业务对象执行修改用户资料
         userService.changeInfo(uid,username,user);
         // 响应成功
-        return new JsonResult<Void>(OK);
+        return new JsonResult<Void>(OK,"个人信息更改成功");
     }
 
     // 设置上传文件的最大值
@@ -91,7 +103,8 @@ public class UserController extends BaseController {//注册模块的控制层
      * @param avatar 用户上传的头像文件
      * @return
      */
-    @PostMapping("/change_avatar")
+    @PostMapping("/change-avatar")
+    @ApiOperation("用户上传头像")
     public JsonResult<String> changeAvatar (HttpSession session,
                                             @RequestParam("file") MultipartFile avatar) {
         // 判断文件是否为空
